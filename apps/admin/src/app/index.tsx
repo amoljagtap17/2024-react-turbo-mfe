@@ -1,6 +1,6 @@
-import { CounterButton } from "@repo/ui";
+import { Typography } from "@repo/ui";
 import React from "react";
 
 export function App(): JSX.Element {
-  return <CounterButton />;
+  return <Typography variant="h1">Hello, React MFE!</Typography>;
 }
