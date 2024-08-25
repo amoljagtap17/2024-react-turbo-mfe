@@ -29,7 +29,7 @@ export function CounterButton(): JSX.Element {
       <div>
         <button
           onClick={() => {
-            setCount((c) => c + 1);
+            setCount(c => c + 1);
           }}
           style={{
             background: "black",

@@ -1,0 +1,10 @@
+.next
+.turbo
+coverage
+dist
+compiled
+build
+.husky
+.vscode
+node_modules
+.prettierignore

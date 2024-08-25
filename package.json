@@ -7,11 +7,18 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
     "test": "turbo run test",
-    "typecheck": "turbo run typecheck"
+    "typecheck": "turbo run typecheck",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
     "prettier": "^3.2.5",
+    "prettier-plugin-organize-imports": "^4.0.0",
     "turbo": "^2.0.14"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "engines": {
     "node": ">=18"
