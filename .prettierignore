@@ -8,3 +8,5 @@ build
 .vscode
 node_modules
 .prettierignore
+favicon.ico
+*.svg
