@@ -4,6 +4,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormLabel from "@mui/material/FormLabel";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
 import Typography from "@mui/material/Typography";
 
 export {
@@ -13,5 +15,7 @@ export {
   FormGroup,
   FormHelperText,
   FormLabel,
+  Radio,
+  RadioGroup,
   Typography,
 };

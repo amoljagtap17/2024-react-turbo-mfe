@@ -1,5 +1,3 @@
-import { FieldValues, Path, useController } from "react-hook-form";
-
 import {
   Checkbox,
   FormControl,
@@ -8,7 +6,7 @@ import {
   FormHelperText,
   FormLabel,
 } from "@repo/ui";
-
+import { FieldValues, Path, useController } from "react-hook-form";
 import { IOption } from "../types";
 
 interface IRHFCheckboxProps<T extends FieldValues> {
