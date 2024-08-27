@@ -6,6 +6,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import FormLabel from "@mui/material/FormLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
+import TextField, { TextFieldProps } from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
 export {
@@ -17,5 +18,8 @@ export {
   FormLabel,
   Radio,
   RadioGroup,
+  TextField,
   Typography,
 };
+
+export type { TextFieldProps };
