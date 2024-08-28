@@ -3,6 +3,8 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
+  await prisma.configurableOption.deleteMany();
+
   await prisma.configurableOption.createMany({
     data: [
       // Asset Types

@@ -12,3 +12,4 @@ favicon.ico
 *.svg
 .gitignore
 schema.prisma
+migrations

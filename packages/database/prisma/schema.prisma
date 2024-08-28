@@ -8,8 +8,8 @@ datasource db {
 }
 
 model ConfigurableOption {
-  id        Int      @id @default(autoincrement())
-  key       String   @unique
+  id        String   @id @default(uuid())
+  key       String
   value     String
   label     String
   createdAt DateTime @default(now())
