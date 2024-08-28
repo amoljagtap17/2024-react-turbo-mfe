@@ -1,4 +1,9 @@
-export const log = (...args: unknown[]): void => {
-  // eslint-disable-next-line no-console -- logger
-  console.log("LOGGER: ", ...args);
-};
+// @ts-nocheck
+
+import { PrismaClient } from "@prisma/client";
+
+export const prisma = global.prisma || new PrismaClient();
+
+if (process.env.NODE_ENV !== "production") global.prisma = prisma;
+
+export * from "@prisma/client";

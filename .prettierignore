@@ -10,3 +10,5 @@ node_modules
 .prettierignore
 favicon.ico
 *.svg
+.gitignore
+schema.prisma
