@@ -1,6 +1,7 @@
 import { Grid } from "@repo/ui";
 import React from "react";
 import { AssetAllocationPieChart } from "../AssetAllocationPieChart";
+import { InvestmentsBarChart } from "../InvestmentsBarChart";
 
 export function Dashboard() {
   return (
@@ -9,7 +10,7 @@ export function Dashboard() {
         <AssetAllocationPieChart />
       </Grid>
       <Grid item xs={12} md={6}>
-        Bar Chart
+        <InvestmentsBarChart />
       </Grid>
     </Grid>
   );

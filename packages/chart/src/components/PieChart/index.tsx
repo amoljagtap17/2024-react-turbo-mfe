@@ -14,7 +14,16 @@ export function PieChart({ title, data }: IPieChartProps) {
     title: {
       text: title,
     },
-    series: [{ type: "pie", data }],
+    plotOptions: {
+      series: {
+        allowPointSelect: true,
+        cursor: "pointer",
+      },
+    },
+    credits: {
+      enabled: false,
+    },
+    series: [{ type: "pie", name: "Amount", data }],
   };
 
   return <HighchartsReact highcharts={Highcharts} options={chartOptions} />;

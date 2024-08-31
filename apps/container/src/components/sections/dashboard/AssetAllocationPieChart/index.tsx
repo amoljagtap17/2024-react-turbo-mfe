@@ -1,5 +1,6 @@
 import { PieChart } from "@repo/chart";
 import { useGetDashboardData } from "@repo/query";
+import { Spinner } from "@repo/ui";
 import React from "react";
 
 export function AssetAllocationPieChart() {
@@ -8,7 +9,7 @@ export function AssetAllocationPieChart() {
   );
 
   if (getDashboardDataQuery.isLoading) {
-    return <div>Loading...</div>;
+    return <Spinner />;
   }
 
   if (getDashboardDataQuery.isError) {
