@@ -18,7 +18,7 @@ interface IInvestmentData {
 }
 
 const getInvestmentData = async (userId: string) => {
-  const { data } = await axios.get<IInvestmentData>(
+  const { data } = await axios.get<IInvestmentData[]>(
     `http://localhost:5001/investments?userId=${userId}`
   );
 
