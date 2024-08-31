@@ -1,7 +1,7 @@
 import { QueryProvider } from "@repo/query";
-import { AppShell } from "@repo/ui";
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import { App } from "./app";
 
 const el = document.getElementById("root");
@@ -11,9 +11,9 @@ if (el) {
   root.render(
     <React.StrictMode>
       <QueryProvider>
-        <AppShell>
+        <BrowserRouter basename="/">
           <App />
-        </AppShell>
+        </BrowserRouter>
       </QueryProvider>
     </React.StrictMode>
   );

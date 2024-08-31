@@ -10,18 +10,19 @@
     "lint": "eslint src/"
   },
   "dependencies": {
+    "@repo/chart": "*",
+    "@repo/query": "*",
+    "@repo/ui": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@repo/ui": "*",
-    "@repo/query": "*",
-    "@repo/chart": "*"
+    "react-router-dom": "^6.26.1"
   },
   "devDependencies": {
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
     "@types/react": "^18.2.62",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.2.1",
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
     "typescript": "^5.3.3",
     "vite": "^5.1.4"
   }
