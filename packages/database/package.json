@@ -26,6 +26,7 @@
     "preset": "@repo/jest-presets/node"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@repo/eslint-config": "*",
     "@repo/jest-presets": "*",
     "@repo/typescript-config": "*",
