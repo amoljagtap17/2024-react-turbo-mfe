@@ -6,35 +6,58 @@ import morgan from "morgan";
 
 export const createServer = (): Express => {
   const app = express();
+
   app
     .disable("x-powered-by")
     .use(morgan("dev"))
     .use(urlencoded({ extended: true }))
     .use(json())
     .use(cors())
-    .get("/configurations", async (_req, res) => {
+    .get("/dashboard", async (req, res) => {
+      const userId: string = req.query.userId as string;
+
+      if (!userId) {
+        return res.status(400).json({ error: "User ID is required" });
+      }
+
       try {
-        const options = await prisma.configurableOption.findMany({});
-
-        const groupedOptions = options.reduce(
-          (acc, option) => {
-            if (!acc[option.key]) {
-              acc[option.key] = [];
-            }
-            acc[option.key].push({
-              id: option.id,
-              value: option.value,
-              label: option.label,
-            });
-            return acc;
+        const totalInvestments = await prisma.investment.aggregate({
+          where: { userId },
+          _sum: {
+            currentValue: true,
           },
-          {} as Record<string, { id: string; value: string; label: string }[]>
-        );
+        });
 
-        return res.json(groupedOptions);
+        const totalDeposits = await prisma.deposit.aggregate({
+          where: { userId },
+          _sum: {
+            amount: true,
+          },
+        });
+
+        const investmentsByType = await prisma.investment.groupBy({
+          by: ["investmentType"],
+          where: { userId },
+          _sum: {
+            currentValue: true,
+          },
+        });
+
+        const investmentsData = investmentsByType.map(item => ({
+          type: item.investmentType,
+          value: item._sum.currentValue || 0,
+        }));
+
+        const dashboardData = {
+          totalInvestments: totalInvestments._sum.currentValue || 0,
+          totalDeposits: totalDeposits._sum.amount || 0,
+          investmentsByType: investmentsData,
+        };
+
+        return res.json(dashboardData);
       } catch (error) {
         return res.status(500).json({
-          error: "An error occurred while fetching configurable options.",
+          error: "An error occurred while fetching dashboard data.",
         });
       }
     })
