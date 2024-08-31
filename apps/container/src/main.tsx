@@ -1,3 +1,4 @@
+import { QueryProvider } from "@repo/query";
 import { AppShell } from "@repo/ui";
 import React from "react";
 import { createRoot } from "react-dom/client";
@@ -9,9 +10,11 @@ if (el) {
 
   root.render(
     <React.StrictMode>
-      <AppShell>
-        <App />
-      </AppShell>
+      <QueryProvider>
+        <AppShell>
+          <App />
+        </AppShell>
+      </QueryProvider>
     </React.StrictMode>
   );
 } else {
