@@ -61,6 +61,26 @@ export const createServer = (): Express => {
         });
       }
     })
+    .get("/investments", async (req, res) => {
+      const userId: string = req.query.userId as string;
+
+      if (!userId) {
+        return res.status(400).json({ error: "User ID is required" });
+      }
+
+      try {
+        const investments = await prisma.investment.findMany({
+          where: { userId },
+          orderBy: { sector: "asc" },
+        });
+
+        return res.json(investments);
+      } catch (error) {
+        return res.status(500).json({
+          error: "An error occurred while fetching investments data.",
+        });
+      }
+    })
     .get("/status", (_, res) => {
       return res.json({ ok: true });
     });
