@@ -1,11 +1,16 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
-export function Navbar() {
+interface INavbarProps {
+  appName: string;
+  NavComponent: React.FunctionComponent;
+}
+
+export function Navbar({ appName, NavComponent }: INavbarProps) {
   return (
     <>
       <AppBar position="static" elevation={0} square>
@@ -21,8 +26,11 @@ export function Navbar() {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              React Turbo MFE
+              {appName}
             </Typography>
+            <Box>
+              <NavComponent />
+            </Box>
           </Toolbar>
         </Container>
       </AppBar>

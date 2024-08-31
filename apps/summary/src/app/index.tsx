@@ -1,6 +1,7 @@
 import { AppShell, FourOhFour } from "@repo/ui";
 import React from "react";
 import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import { Navbar } from "../components/lib";
 import { Dashboard } from "../components/sections";
 
 function NoMatch() {
@@ -22,7 +23,7 @@ export function App(): JSX.Element {
       <Route
         path="/"
         element={
-          <AppShell>
+          <AppShell appName="Summary App" NavComponent={Navbar}>
             <Outlet />
           </AppShell>
         }

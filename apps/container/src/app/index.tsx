@@ -1,20 +1,8 @@
-import { AppShell, FourOhFour } from "@repo/ui";
+import { AppShell } from "@repo/ui";
 import React from "react";
-import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
+import { Navbar, NoMatch } from "../components/lib";
 import { Dashboard } from "../components/sections";
-
-function NoMatch() {
-  const navigate = useNavigate();
-
-  return (
-    <FourOhFour
-      onClick={() => {
-        console.log("clicked");
-        navigate("/");
-      }}
-    />
-  );
-}
 
 export function App(): JSX.Element {
   return (
@@ -22,7 +10,7 @@ export function App(): JSX.Element {
       <Route
         path="/"
         element={
-          <AppShell>
+          <AppShell appName="Container App" NavComponent={Navbar}>
             <Outlet />
           </AppShell>
         }

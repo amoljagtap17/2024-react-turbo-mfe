@@ -11,7 +11,7 @@ if (el) {
   root.render(
     <React.StrictMode>
       <QueryProvider>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="/summary">
           <App />
         </BrowserRouter>
       </QueryProvider>
