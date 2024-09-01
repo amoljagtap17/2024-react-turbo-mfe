@@ -5,7 +5,7 @@ import React from "react";
 
 export function InvestmentsBarChart() {
   const { status, data, refetch } = useGetDashboardData(
-    "77be0264-c513-4912-be39-d6c18a2631c9"
+    "bce7d90e-552a-406f-9923-273593b6cb25"
   );
 
   return status === "pending" ? (

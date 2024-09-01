@@ -26,7 +26,7 @@ async function main() {
       },
     });
 
-    for (let j = 0; j < 5; j++) {
+    for (let j = 0; j < 15; j++) {
       await prisma.deposit.create({
         data: {
           accountNumber: faker.finance.accountNumber({ length: 10 }),
