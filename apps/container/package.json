@@ -5,10 +5,10 @@
   "scripts": {
     "build": "vite build",
     "clean": "rm -rf dist",
-    "dev": "vite --host 0.0.0.0 --port 3001 --clearScreen false",
+    "dev": "vite --clearScreen false",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src/",
-    "preview": "vite preview --host 0.0.0.0 --port 3001"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@repo/chart": "*",
@@ -19,6 +19,7 @@
     "react-router-dom": "^6.26.1"
   },
   "devDependencies": {
+    "@originjs/vite-plugin-federation": "^1.3.5",
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@types/react": "^18.2.62",
