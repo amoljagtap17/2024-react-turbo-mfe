@@ -8,9 +8,16 @@ export default defineConfig({
     federation({
       name: "container",
       remotes: {
-        summaryApp: "summary@http://localhost:3002/remoteEntry.js",
+        summaryApp: "http://localhost:3002/assets/remoteEntry.js",
       },
-      shared: ["react", "react-dom", "react-router-dom"],
+      shared: [
+        "react",
+        "react-dom",
+        "react-router-dom",
+        "@repo/query",
+        "@repo/ui",
+        "@repo/chart",
+      ],
     }),
   ],
   build: {

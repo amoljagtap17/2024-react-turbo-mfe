@@ -11,7 +11,14 @@ export default defineConfig({
       exposes: {
         "./Dashboard": "./src/components/sections/dashboard/Dashboard",
       },
-      shared: ["react", "react-dom", "react-router-dom"],
+      shared: [
+        "react",
+        "react-dom",
+        "react-router-dom",
+        "@repo/query",
+        "@repo/ui",
+        "@repo/chart",
+      ],
     }),
   ],
   build: {
