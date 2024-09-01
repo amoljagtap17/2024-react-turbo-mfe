@@ -1,8 +1,13 @@
-import { AppShell, FourOhFour } from "@repo/ui";
-import React from "react";
+import { AppShell, FourOhFour, Spinner } from "@repo/ui";
+import React, { lazy, Suspense } from "react";
 import { Outlet, Route, Routes, useNavigate } from "react-router-dom";
 import { Navbar } from "../components/lib";
-import { Dashboard } from "../components/sections";
+
+const Dashboard = lazy(() =>
+  import("../components/sections/dashboard/Dashboard").then(module => ({
+    default: module.Dashboard,
+  }))
+);
 
 function NoMatch() {
   const navigate = useNavigate();
@@ -28,7 +33,14 @@ export function App(): JSX.Element {
           </AppShell>
         }
       >
-        <Route index element={<Dashboard />} />
+        <Route
+          index
+          element={
+            <Suspense fallback={<Spinner />}>
+              <Dashboard />
+            </Suspense>
+          }
+        />
         <Route path="*" element={<NoMatch />} />
       </Route>
     </Routes>
